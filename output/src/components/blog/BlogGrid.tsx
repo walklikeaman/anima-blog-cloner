@@ -6,6 +6,8 @@ import { blogPosts as staticBlogPosts } from '../../data/blogPosts';
 
 const BlogGrid: React.FC = () => {
   const { posts, loading, error } = useBlogPosts();
+  
+  console.log('BlogGrid - loading:', loading, 'error:', error, 'posts:', posts);
 
   if (loading) {
     return (
@@ -48,11 +50,22 @@ const BlogGrid: React.FC = () => {
             return <BlogPostCard key={post.id} post={post} />;
           }
         })}
-        <div style={{ width: '100%', padding: '0 15px', margin: 'auto' }}>
-          <a href="/blog/page/2" style={{ color: 'rgb(255, 98, 80)', fontWeight: 500, display: 'block', float: 'right' }}>
-            Next Page &gt;
-          </a>
-        </div>
+      </div>
+      
+      {/* Pagination - using proper JSX syntax */}
+      <div style={{ width: '100%', padding: '0 15px', margin: 'auto', marginTop: '40px' }}>
+        <a 
+          href="/blog/page/2" 
+          style={{ 
+            color: 'rgb(255, 98, 80)', 
+            fontWeight: 500, 
+            display: 'block', 
+            float: 'right',
+            textDecoration: 'none'
+          }}
+        >
+          Next Page →
+        </a>
       </div>
     </div>
   );

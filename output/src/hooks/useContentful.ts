@@ -20,10 +20,10 @@ export function useBlogPosts() {
         } else {
           // Fallback to static data if no Contentful posts found
           console.log('No Contentful posts found, using static data');
-          setPosts([]);
+          setPosts([]); // Set to empty array to indicate no Contentful data, then BlogGrid will use static
         }
         setError(null);
-      } catch (err) {
+      } catch (err: any) {
         console.log('Contentful error, using static data:', err);
         setError(null); // Don't show error, just use static data
       } finally {
@@ -48,49 +48,25 @@ export function useBlogPost(slug: string) {
       try {
         setLoading(true);
         const data = await getBlogPostBySlug(slug);
-        setPost(data);
+        if (data) {
+          setPost(data);
+        } else {
+          console.log(`No Contentful post found for slug ${slug}, using static data`);
+          setPost(null); // Indicate no Contentful data
+        }
         setError(null);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch blog post');
+      } catch (err: any) {
+        console.log(`Contentful error for slug ${slug}, using static data:`, err);
+        setError(null);
       } finally {
         setLoading(false);
       }
     };
 
-    if (slug) {
-      fetchPost();
-    }
+    fetchPost();
   }, [slug]);
 
   return { post, loading, error };
-}
-
-// Hook for fetching blog posts by category
-export function useBlogPostsByCategory(category: string) {
-  const [posts, setPosts] = useState<Entry<ContentfulBlogPost>[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        setLoading(true);
-        const data = await getBlogPostsByCategory(category);
-        setPosts(data);
-        setError(null);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch blog posts');
-      } finally {
-        setLoading(false);
-      }
-    };
-
-    if (category) {
-      fetchPosts();
-    }
-  }, [category]);
-
-  return { posts, loading, error };
 }
 
 // Hook for fetching categories
@@ -104,10 +80,16 @@ export function useCategories() {
       try {
         setLoading(true);
         const data = await getCategories();
-        setCategories(data);
+        if (data.length > 0) {
+          setCategories(data);
+        } else {
+          console.log('No Contentful categories found, using static data');
+          setCategories([]); // Indicate no Contentful data
+        }
         setError(null);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Failed to fetch categories');
+      } catch (err: any) {
+        console.log('Contentful error for categories, using static data:', err);
+        setError(null);
       } finally {
         setLoading(false);
       }

@@ -1,45 +1,46 @@
-import React, { useState } from 'react';
-import Header from './components/layout/Header';
-import HeroSection from './components/blog/HeroSection';
-import CategoryFilters from './components/blog/CategoryFilters';
-import BlogGrid from './components/blog/BlogGrid';
-import Footer from './components/layout/Footer';
-import MobileMenu from './components/layout/MobileMenu';
+import { TopNavbar } from "./sections/TopNavbar";
+import { BlogHeader } from "./sections/BlogHeader";
+import { MainContent } from "./sections/MainContent";
+import { Footer } from "./sections/Footer";
+import { FloatingWidget } from "./components/FloatingWidget";
 
-function App() {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  const toggleMobileMenu = () => {
-    setIsMobileMenuOpen(!isMobileMenuOpen);
-  };
-
+export const App = () => {
   return (
-    <div style={{ colorScheme: 'normal', forcedColorAdjust: 'auto', textSizeAdjust: '100%', color: 'rgb(33, 37, 41)', direction: 'ltr', fontFamily: 'Mulish-Regular', fontFeatureSettings: 'normal', fontSize: '16px', fontStyle: 'normal', fontVariantNumeric: 'normal', fontVariationSettings: 'normal', fontWeight: 400, textOrientation: 'mixed', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", accentColor: 'auto', backgroundColor: 'rgb(255, 255, 255)', boxSizing: 'border-box', listStyleImage: 'none', listStylePosition: 'outside', listStyleType: 'disc', overflowX: 'hidden', overflowY: 'auto', textAlign: 'left', textTransform: 'none' }}>
-      <Header onMenuToggle={toggleMobileMenu} />
-      <MobileMenu isOpen={isMobileMenuOpen} onClose={toggleMobileMenu} />
-      
-      <div style={{ colorScheme: 'normal', forcedColorAdjust: 'auto', position: 'fixed', color: 'rgb(38, 38, 38)', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", backgroundColor: 'rgba(236, 236, 236, 0.7)', blockSize: '40px', borderBottomLeftRadius: '50%', borderBottomRightRadius: '50%', borderEndEndRadius: '50%', borderEndStartRadius: '50%', borderStartEndRadius: '50%', borderStartStartRadius: '50%', borderTopLeftRadius: '50%', borderTopRightRadius: '50%', boxSizing: 'border-box', display: 'none', height: '40px', inlineSize: '40px', insetBlockStart: '25px', left: '0px', marginInlineEnd: 'auto', marginInlineStart: 'auto', marginLeft: 'auto', marginRight: 'auto', opacity: 0.8, overflow: 'hidden', paddingBlockStart: '9px', paddingTop: '9px', right: '0px', textAlign: 'center', textWrap: 'nowrap', top: '25px', width: '40px', zIndex: 98 }}>
-        <i style={{ color: 'rgb(38, 38, 38)', fontFamily: "'Font Awesome 6 Free'", fontWeight: 900, WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", backgroundImage: 'none', backgroundRepeat: 'repeat', backgroundSize: 'auto', display: 'inline-block', lineHeight: '16px', textWrap: 'nowrap' }}></i>
-      </div>
-
-      <div style={{ colorScheme: 'normal', forcedColorAdjust: 'auto', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", boxSizing: 'border-box', inlineSize: '100%', marginInlineEnd: '70px', marginInlineStart: '70px', marginLeft: 'auto', marginRight: 'auto', maxInlineSize: '1140px', maxWidth: '1140px', overflow: 'visible', paddingInlineEnd: '15px', paddingInlineStart: '15px', paddingLeft: '15px', paddingRight: '15px', width: '100%' }}>
-        <div style={{ colorScheme: 'normal', forcedColorAdjust: 'auto', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", boxSizing: 'border-box', display: 'flex', flexWrap: 'wrap', marginInlineEnd: '-15px', marginInlineStart: '-15px', marginLeft: '-15px', marginRight: '-15px', overflow: 'visible' }}>
-          <div style={{ position: 'relative', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", alignItems: 'center', boxSizing: 'border-box', flexBasis: '100%', flexShrink: 0, inlineSize: '100%', inset: '0px', marginBlockEnd: '35px', marginBottom: '35px', marginLeft: 'auto', marginRight: 'auto', maxInlineSize: '100%', maxWidth: '100%', minBlockSize: '1px', minHeight: '1px', overflow: 'visible', width: '100%' }}>
-            <article style={{ colorScheme: 'normal', forcedColorAdjust: 'auto', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", boxSizing: 'border-box', marginBlockEnd: '24px', marginBottom: '24px', overflow: 'visible' }}>
-              <div style={{ colorScheme: 'normal', forcedColorAdjust: 'auto', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", boxSizing: 'border-box', counterReset: 'footnotes 0', overflow: 'visible' }}>
-                <HeroSection />
-                <div style={{ colorScheme: 'normal', forcedColorAdjust: 'auto', WebkitFontSmoothing: 'antialiased', WebkitLocale: "'en-US'", boxSizing: 'border-box', inlineSize: '100%', marginBlockEnd: '30px', marginBottom: '30px', overflow: 'visible', width: '100%' }}>
-                  <CategoryFilters />
-                  <BlogGrid />
-                </div>
-              </div>
-            </article>
-          </div>
+    <body className="text-neutral-800 text-base not-italic normal-nums font-normal accent-auto bg-white box-border caret-transparent block tracking-[normal] leading-6 list-outside list-disc overflow-x-hidden overflow-y-auto pointer-events-auto text-left indent-[0px] normal-case visible border-separate font-mulish_regular">
+      <div className="box-border caret-transparent">
+        <TopNavbar />
+        <BlogHeader />
+        <div className="absolute text-white bg-transparent box-border caret-transparent block h-10 opacity-80 text-center text-nowrap w-10 z-[9999999] overflow-hidden ml-auto mr-[30px] pt-[9px] rounded-[50%] left-[15px] right-auto top-3.5 md:fixed md:text-neutral-800 md:bg-gray-200/70 md:hidden md:z-[98] md:mr-auto md:top-[25px] md:inset-x-0">
+          <i className="text-white font-black bg-[url('https://www.animaapp.com/blog/wp-content/uploads/2022/08/menu-icon-mbl-1.png')] bg-no-repeat bg-contain box-border caret-transparent inline-block h-[30px] leading-4 text-nowrap w-6 font-font_awesome_6_free md:text-neutral-800 md:bg-none md:bg-repeat md:bg-auto md:h-auto md:w-auto before:accent-auto before:box-border before:caret-transparent before:text-white before:hidden before:text-base before:not-italic before:normal-nums before:font-black before:tracking-[normal] before:leading-4 before:list-outside before:list-disc before:pointer-events-auto before:text-center before:indent-[0px] before:normal-case before:text-nowrap before:visible before:border-separate before:font-font_awesome_6_free before:md:text-neutral-800 before:md:inline"></i>
         </div>
+        <MainContent />
+        <Footer />
+        <footer className="box-border caret-transparent hidden max-w-[830px] text-center mb-10 mx-auto">
+          <div className="box-border caret-transparent max-w-none w-[90%] mx-auto px-[15px] md:max-w-[1140px] md:w-full">
+            <div className="box-border caret-transparent mb-[25px]"></div>
+            <p className="text-zinc-400 text-[15px] box-border caret-transparent leading-[27px] mb-[35px] md:text-zinc-500 md:text-base md:leading-6"></p>
+            <nav className="relative box-border caret-transparent mb-[35px] md:mb-[30px]"></nav>
+            <p className="text-[15px] font-bold box-border caret-transparent leading-[22.5px] mb-[5px] md:text-base md:leading-6">
+              Copyright ©2025 Anima Blog
+            </p>
+            <p className="text-stone-300 text-[15px] box-border caret-transparent leading-[22.5px] mb-4 md:text-base md:leading-6">
+              Neori theme, designed by{" "}
+              <a
+                href="http://litmotion.net/"
+                className="text-[15px] font-bold box-border caret-transparent leading-[22.5px] md:text-base md:leading-6 hover:text-neutral-900 hover:border-neutral-900"
+              >
+                litMotion Templates
+              </a>
+            </p>
+          </div>
+        </footer>
       </div>
-      <Footer />
-    </div>
+      <FloatingWidget />
+      <span className="box-border caret-transparent hidden">3951</span>
+      <img className="aspect-[auto_1_/_1] box-border caret-transparent hidden h-px w-px" />
+      <img className="aspect-[auto_1_/_1] box-border caret-transparent hidden h-px w-px" />
+      <img className="aspect-[auto_1_/_1] box-border caret-transparent hidden h-px w-px" />
+      <img className="aspect-[auto_1_/_1] box-border caret-transparent hidden h-px w-px" />
+    </body>
   );
-}
-
-export default App;
+};

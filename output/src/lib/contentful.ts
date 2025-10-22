@@ -1,25 +1,23 @@
 import { createClient, Entry, Asset } from 'contentful';
 
-// Contentful configuration (use Vite env vars in browser)
+// Contentful configuration - hardcoded for assignment
 const contentfulConfig = {
-  space:
-    (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_CONTENTFUL_SPACE_ID) ||
-    (process.env as any)?.CONTENTFUL_SPACE_ID ||
-    'your_space_id_here',
-  accessToken:
-    (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_CONTENTFUL_ACCESS_TOKEN) ||
-    (process.env as any)?.CONTENTFUL_ACCESS_TOKEN ||
-    'jCvVaykeWWgUO4E44IdS_SMJXjdcTGhMTvfDP6ityoo',
-  previewToken:
-    (typeof import.meta !== 'undefined' && (import.meta as any).env?.VITE_CONTENTFUL_PREVIEW_TOKEN) ||
-    (process.env as any)?.CONTENTFUL_PREVIEW_TOKEN ||
-    'T9d_qyekWu3LWFfQKkL0x4AUxVRACnJC9wNWk4JNz6A',
+  space: 'dah4a45wn7nn',
+  accessToken: 'jCvVaykeWWgUO4E44IdS_SMJXJdcTGhMTvfDP6ityoo',
+  previewToken: 'T9d_qyekWu3LWFfQKkL0x4AUVVRACnJC9wNWk4JNz6A',
 };
 
 // Create Contentful client
 export const contentfulClient = createClient({
   space: contentfulConfig.space,
   accessToken: contentfulConfig.accessToken,
+});
+
+// Log configuration for debugging
+console.log('Contentful Config:', {
+  space: contentfulConfig.space,
+  hasAccessToken: !!contentfulConfig.accessToken,
+  accessTokenLength: contentfulConfig.accessToken?.length || 0
 });
 
 // Create preview client for draft content
@@ -44,10 +42,12 @@ export interface ContentfulBlogPost {
 // Fetch all blog posts
 export async function getBlogPosts(): Promise<Entry<ContentfulBlogPost>[]> {
   try {
+    console.log('Fetching blog posts from Contentful...');
     const response = await contentfulClient.getEntries<ContentfulBlogPost>({
       content_type: 'blogPost', // This should match your Contentful content type ID
-      order: '-publishedAt', // Order by published date, newest first
+      order: '-sys.createdAt', // Order by creation date, newest first
     });
+    console.log('Contentful response:', response);
     return response.items;
   } catch (error) {
     console.error('Error fetching blog posts:', error);
@@ -76,7 +76,7 @@ export async function getBlogPostsByCategory(category: string): Promise<Entry<Co
     const response = await contentfulClient.getEntries<ContentfulBlogPost>({
       content_type: 'blogPost',
       'fields.category': category,
-      order: '-publishedAt',
+      order: '-sys.createdAt',
     });
     return response.items;
   } catch (error) {

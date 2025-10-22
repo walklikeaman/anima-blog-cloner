@@ -56,17 +56,17 @@ module.exports = {
           '"Segoe UI Symbol"',
           '"Noto Color Emoji"',
         ],
-        "Mulish-Regular": ["Mulish-Regular"],
-        "Roslindale-DeckNarrowBold": ["Roslindale-DeckNarrowBold"],
-        "Roslindale-TextRegular": ["Roslindale-TextRegular"],
-        "Roslindale-TextSemiBold": ["Roslindale-TextSemiBold"],
-        "Heebo": ["Heebo"],
-        "wpzoom-socicon": ["wpzoom-socicon"],
-        "Genericons": ["Genericons"],
-        "FontAwesome": ["FontAwesome"],
-        "Font Awesome 6 Free": ["Font Awesome 6 Free"],
-        "Font Awesome 5 Free": ["Font Awesome 5 Free"],
-        "Mulish": ["Mulish"]
+        "mulish_regular": ["Mulish-Regular", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "roslindale_decknarrowbold": ["Roslindale-DeckNarrowBold", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "roslindale_textregular": ["Roslindale-TextRegular", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "roslindale_textsemibold": ["Roslindale-TextSemiBold", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "heebo": ["Heebo", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "wpzoom_socicon": ["wpzoom-socicon", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "genericons": ["Genericons", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "fontawesome": ["FontAwesome", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "font_awesome_6_free": ["Font Awesome 6 Free", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "font_awesome_5_free": ["Font Awesome 5 Free", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"],
+        "mulish": ["Mulish", "ui-sans-serif", "system-ui", "sans-serif", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji"]
       },
       keyframes: {
         "accordion-down": {

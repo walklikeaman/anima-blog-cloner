@@ -1,70 +1,43 @@
-import { Entry, Asset } from 'contentful';
+import { Entry } from 'contentful';
 import { ContentfulBlogPost } from '../lib/contentful';
-import { BlogPost } from '../types';
 
-// Convert Contentful blog post to the format expected by existing components
+export interface BlogPost {
+  id: string;
+  imageSrc: string;
+  imageAlt: string;
+  tags: Array<{ label: string; href: string }>;
+  title: string;
+  description: string;
+  author: {
+    name: string;
+    avatarSrc: string;
+    href: string;
+  };
+  date: string;
+  readTime: number;
+  url: string;
+  content?: any;
+}
+
 export function convertContentfulToBlogPost(contentfulPost: Entry<ContentfulBlogPost>): BlogPost {
-  const fields = contentfulPost.fields;
-  
+  const { fields } = contentfulPost;
+
+  // Basic conversion, adjust as needed based on your BlogPost type
   return {
     id: contentfulPost.sys.id,
-    imageSrc: fields.coverImage?.fields?.file?.url || '',
-    imageAlt: fields.coverImage?.fields?.title || fields.title,
-    tags: [
-      { label: fields.category, href: `/blog/category/${fields.category.toLowerCase()}/` }
-    ],
+    imageSrc: fields.coverImage?.fields?.file?.url ? `https:${fields.coverImage.fields.file.url}` : 'https://via.placeholder.com/768x477',
+    imageAlt: fields.coverImage?.fields?.description || fields.title,
+    tags: fields.category ? [{ label: fields.category, href: `/blog/category/${fields.category.toLowerCase()}/` }] : [],
     title: fields.title,
     description: fields.excerpt,
     author: {
-      name: fields.authorName,
-      avatarSrc: 'https://via.placeholder.com/40x40/cccccc/666666?text=' + fields.authorName.charAt(0).toUpperCase(),
-      href: `/blog/author/${fields.authorName.toLowerCase().replace(/\s+/g, '-')}/`,
+      name: fields.authorName || 'Unknown Author',
+      avatarSrc: 'https://via.placeholder.com/150', // Placeholder, as author avatar is not in Contentful model
+      href: `/blog/author/${fields.authorName?.toLowerCase().replace(/\s+/g, '-')}/`,
     },
-    date: new Date(fields.publishedAt).toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    }),
-    readTime: '5 min read', // Default read time since it's not in Contentful model
-    url: `/blog/${fields.slug}/`,
+    date: fields.publishedAt ? new Date(fields.publishedAt).toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' }) : 'N/A',
+    readTime: 5, // Placeholder, as read time is not in Contentful model
+    url: `/blog/posts/${fields.slug}`,
+    content: fields.content, // Rich text content
   };
-}
-
-// Get image URL from Contentful asset
-export function getContentfulImageUrl(asset: Asset, width?: number, height?: number): string {
-  if (!asset?.fields?.file?.url) return '';
-  
-  let url = asset.fields.file.url;
-  
-  // Add image transformation parameters if width/height provided
-  if (width || height) {
-    const params = new URLSearchParams();
-    if (width) params.set('w', width.toString());
-    if (height) params.set('h', height.toString());
-    params.set('fit', 'fill');
-    params.set('f', 'faces');
-    
-    url += `?${params.toString()}`;
-  }
-  
-  return url.startsWith('//') ? `https:${url}` : url;
-}
-
-// Format date from Contentful
-export function formatContentfulDate(dateString: string): string {
-  return new Date(dateString).toLocaleDateString('en-US', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  });
-}
-
-// Generate slug from title
-export function generateSlug(title: string): string {
-  return title
-    .toLowerCase()
-    .replace(/[^a-z0-9 -]/g, '')
-    .replace(/\s+/g, '-')
-    .replace(/-+/g, '-')
-    .trim();
 }

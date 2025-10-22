@@ -2,127 +2,125 @@
 @tailwind utilities;
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'Mulish-Regular';
-  src: url('url('https://www.animaapp.com/blog/wp-content/themes/neori-child/fonts/Mulish-Regular.woff2') format("woff2")');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'Roslindale-DeckNarrowBold';
-  src: url('url('https://www.animaapp.com/blog/wp-content/themes/neori-child/fonts/Roslindale-DeckNarrowBold.woff2') format("woff2")');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'Roslindale-TextRegular';
-  src: url('url('https://www.animaapp.com/blog/wp-content/themes/neori-child/fonts/Roslindale-TextRegular.woff2') format("woff2")');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'Roslindale-TextSemiBold';
-  src: url('url('https://www.animaapp.com/blog/wp-content/themes/neori-child/fonts/Roslindale-TextSemiBold.woff2') format("woff2")');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Heebo';
-  src: url('url('https://c.animaapp.com/mh1wj6u6DkMTRK/assets/NGS6v5_NC0k9P9H2TbE.woff2')');
+  src: url('https://c.animaapp.com/mh1uo1b9FcJfkA/assets/NGS6v5_NC0k9P9H2TbE.woff2');
   font-weight: 300;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Heebo';
-  src: url('url('https://c.animaapp.com/mh1wj6u6DkMTRK/assets/NGS6v5_NC0k9P9H2TbE-1.woff2')');
+  src: url('https://c.animaapp.com/mh1uo1b9FcJfkA/assets/NGS6v5_NC0k9P9H2TbE-1.woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Heebo';
-  src: url('url('https://c.animaapp.com/mh1wj6u6DkMTRK/assets/NGS6v5_NC0k9P9H2TbE-2.woff2')');
+  src: url('https://c.animaapp.com/mh1uo1b9FcJfkA/assets/NGS6v5_NC0k9P9H2TbE-2.woff2');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Heebo';
-  src: url('url('https://c.animaapp.com/mh1wj6u6DkMTRK/assets/NGS6v5_NC0k9P9H2TbE-3.woff2')');
+  src: url('https://c.animaapp.com/mh1uo1b9FcJfkA/assets/NGS6v5_NC0k9P9H2TbE-3.woff2');
   font-weight: 700;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'wpzoom-socicon';
-  src: url('url('https://www.animaapp.com/blog/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/socicon.woff2?v=4.3.3')');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'Genericons';
-  src: url('url('https://www.animaapp.com/blog/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/Genericons.woff') format("woff")');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'FontAwesome';
-  src: url('url('https://www.animaapp.com/blog/wp-content/plugins/social-icons-widget-by-wpzoom/assets/font/fontawesome-webfont.woff2?v=4.7.0')');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'Font Awesome 6 Free';
-  src: url('url('engine://3') format("woff2")');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'Font Awesome 5 Free';
-  src: url('url('engine://3') format("woff2")');
   font-weight: 900;
   font-style: normal;
 }
 
 @font-face {
+  /* This font could not be included automatically because of legal reasons. Please add it manually or switch to another font */
   font-family: 'FontAwesome';
-  src: url('url('engine://3') format("woff2")');
   font-weight: normal;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Mulish';
-  src: url('url('https://c.animaapp.com/mh1wj6u6DkMTRK/assets/1Ptvg83HX_SGhgqk3wot.woff2')');
+  src: url('https://c.animaapp.com/mh1uo1b9FcJfkA/assets/1Ptvg83HX_SGhgqk3wot.woff2');
   font-weight: 400;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Mulish';
-  src: url('url('https://c.animaapp.com/mh1wj6u6DkMTRK/assets/1Ptvg83HX_SGhgqk3wot-1.woff2')');
+  src: url('https://c.animaapp.com/mh1uo1b9FcJfkA/assets/1Ptvg83HX_SGhgqk3wot-1.woff2');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
   font-family: 'Mulish';
-  src: url('url('https://c.animaapp.com/mh1wj6u6DkMTRK/assets/1Ptvg83HX_SGhgqk3wot-2.woff2')');
+  src: url('https://c.animaapp.com/mh1uo1b9FcJfkA/assets/1Ptvg83HX_SGhgqk3wot-2.woff2');
   font-weight: 700;
   font-style: normal;
 }
 
 @tailwind base;
-@tailwind components;
-@tailwind utilities;
 
 @layer base {
   :root {

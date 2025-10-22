@@ -1,7 +1,7 @@
 [build]
-command = "npm run build"
-publish = "dist"
+command = "cd output && npm install && npm run build"
+publish = "output/dist"
 
 [dev]
-command = "npm run dev"
+command = "cd output && npm run dev"
 port = 5173
